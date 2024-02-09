@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "classicandsimplestatusbars",
+  "version": "${version}",
+
+  "name": "ClassicAndSimpleStatusBars",
+  "description": "info",
+  "authors": [],
+  "contact": {},
+
+  "license": "GNU GPL 3.0",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [
+    "classicandsimplestatusbars.mixins.json",
+    "classicandsimplestatusbars-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.6",
+    "minecraft": ">=1.20.4"
+  }
+}
