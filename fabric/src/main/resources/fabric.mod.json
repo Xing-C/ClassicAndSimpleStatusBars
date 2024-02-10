@@ -2,23 +2,30 @@
   "schemaVersion": 1,
   "id": "classicandsimplestatusbars",
   "version": "${version}",
-
-  "name": "ClassicAndSimpleStatusBars",
-  "description": "info",
-  "authors": [],
-  "contact": {},
-
-  "license": "GNU GPL 3.0",
+  "name": "Example Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "Insert License Here",
   "icon": "icon.png",
-
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": [
+      "cn.mcxkly.classicandsimplestatusbars.fabric.ClassicAndSimpleStatusBarsFabric"
+    ]
+  },
   "mixins": [
     "classicandsimplestatusbars.mixins.json",
     "classicandsimplestatusbars-common.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.6",
-    "minecraft": ">=1.20.4"
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "architectury": ">=9.1.12"
   }
 }

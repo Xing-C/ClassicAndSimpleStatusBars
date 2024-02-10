@@ -17,6 +17,7 @@ public class ClassicAndSimpleStatusBarsForge {
     public ClassicAndSimpleStatusBarsForge(IEventBus modEventBus) {
         modEventBus.addListener(this::commonSetup);
 
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

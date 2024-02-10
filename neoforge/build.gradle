@@ -1,6 +1,7 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "com.github.johnrengelman.shadow" version "7.1.2"
 }
+
 architectury {
     platformSetupLoomIde()
     neoForge()
@@ -11,11 +12,11 @@ loom {
 }
 
 configurations {
-    common
-    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
-    compileClasspath.extendsFrom common
-    runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
+  common
+  shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+  compileClasspath.extendsFrom common
+  runtimeClasspath.extendsFrom common
+  developmentNeoForge.extendsFrom common
 }
 
 dependencies {
@@ -23,8 +24,13 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
 
+    	
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-forge:$rei_version"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:$rei_version"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-forge:$rei_version"
+
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive false }
 }
 
 processResources {
@@ -38,18 +44,14 @@ processResources {
 shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
+
     configurations = [project.configurations.shadowCommon]
-    archiveClassifier.set("dev-shadow")
+    archiveClassifier = "dev-shadow"
 }
 
 remapJar {
-    inputFile.set shadowJar.archiveFile
+    input.set shadowJar.archiveFile
     dependsOn shadowJar
-    archiveClassifier.set(null)
-}
-
-jar {
-    archiveClassifier.set("dev")
 }
 
 sourcesJar {

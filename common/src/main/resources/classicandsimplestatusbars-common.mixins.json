@@ -1,11 +1,13 @@
 {
   "required": true,
-  "minVersion": "0.8",
-  "package": "cn.mcxkly.classicandsimplestatusbars.mixin.forge",
+  "package": "cn.mcxkly.classicandsimplestatusbars.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-  ],
+  "minVersion": "0.8",
   "client": [
+    "MixinRender",
+    "MixinTitleScreen"
+  ],
+  "mixins": [
   ],
   "injectors": {
     "defaultRequire": 1
